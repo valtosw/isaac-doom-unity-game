@@ -1,4 +1,4 @@
-﻿namespace Assets._Project.Scripts
+﻿namespace Assets._Project.Scripts.Core
 {
 	public interface IDamageable
 	{
