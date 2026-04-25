@@ -630,8 +630,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b91b5ad1ae7471439d103717728d230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets._Project.Scripts.HazardArea
-  damagePerTick: 10
-  tickRate: 1
+  _damagePerTick: 10
+  _tickRate: 1
 --- !u!1 &796445008
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,10 +708,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3ad69e3609d214aa48430c8d34157c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  moveAction: {fileID: -8332369321995873368, guid: 373229e39584c3945bbbead321e474c8, type: 3}
-  cameraAnimator: {fileID: 963194229}
-  playerSpeed: 5
-  gravity: -9.81
+  _moveAction: {fileID: -8332369321995873368, guid: 373229e39584c3945bbbead321e474c8, type: 3}
+  _cameraAnimator: {fileID: 963194229}
+  _movementSpeed: 5
 --- !u!114 &796445012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -724,9 +723,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45ed99c63297e244968fa3d64a68096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  lookAction: {fileID: 8260599595759028151, guid: 373229e39584c3945bbbead321e474c8, type: 3}
-  mouseSensitivity: 0.1
-  smoothing: 30
+  _lookAction: {fileID: 8260599595759028151, guid: 373229e39584c3945bbbead321e474c8, type: 3}
+  _mouseSensitivity: 0.1
+  _smoothing: 30
 --- !u!114 &796445013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,7 +768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416400f89a8c83145a1da7d806a9e2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets._Project.Scripts.Health
-  maxHealth: 100
+  _maxHealth: 100
   OnHealthChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -815,8 +814,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e84bacadcd75624483c7a250435014d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets._Project.Scripts.PlayerCombat
-  fireAction: {fileID: 3416953869209419851, guid: 373229e39584c3945bbbead321e474c8, type: 3}
-  currentWeapon: {fileID: 2117476142}
+  _fireAction: {fileID: 3416953869209419851, guid: 373229e39584c3945bbbead321e474c8, type: 3}
+  _currentWeapon: {fileID: 1694578215}
 --- !u!1 &807659877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,10 +1086,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef580522d5dea9b4a95ca4b69aaa1b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets._Project.Scripts.RangedWeapon
-  Damage: 20
-  AttackCooldown: 0.5
-  projectilePrefab: {fileID: 1880318766782264190, guid: ccb87b2806991d74ebae3e604741782d, type: 3}
-  firePoint: {fileID: 231234425}
+  _damage: 20
+  _attackCooldown: 0.5
+  _projectilePrefab: {fileID: 1880318766782264190, guid: ccb87b2806991d74ebae3e604741782d, type: 3}
+  _firePoint: {fileID: 231234425}
 --- !u!4 &1694578216
 Transform:
   m_ObjectHideFlags: 0
@@ -1249,15 +1248,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b49fd81a5a62384aa901240ff01dcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets._Project.Scripts.MeleeWeapon
-  Damage: 40
-  AttackCooldown: 0.8
-  attackRange: 2.5
-  attackRadius: 0.5
-  attackPoint: {fileID: 963194228}
-  hitLayers:
+  _damage: 20
+  _attackCooldown: 0.5
+  _attackRange: 2.5
+  _attackRadius: 0.5
+  _attackPoint: {fileID: 963194228}
+  _hitLayers:
     serializedVersion: 2
     m_Bits: 128
-  weaponAnimator: {fileID: 963194229}
+  _weaponAnimator: {fileID: 963194229}
 --- !u!4 &2117476143
 Transform:
   m_ObjectHideFlags: 0
@@ -1284,6 +1283,14 @@ PrefabInstance:
     - target: {fileID: 1058078312748882527, guid: f4432a59443e00942898c217462839b2, type: 3}
       propertyPath: maxHealth
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058078312748882527, guid: f4432a59443e00942898c217462839b2, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExecuteDestroy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058078312748882527, guid: f4432a59443e00942898c217462839b2, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Assets._Project.Scripts.Core.ObjectDestroyer, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2597685995822291016, guid: f4432a59443e00942898c217462839b2, type: 3}
       propertyPath: m_Name

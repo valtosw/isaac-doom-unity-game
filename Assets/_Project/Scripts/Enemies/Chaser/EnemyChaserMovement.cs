@@ -6,8 +6,13 @@ namespace Assets._Project.Scripts.Enemies.Chaser
 	[RequireComponent(typeof(NavMeshAgent))]
 	public class EnemyChaserMovement : MonoBehaviour
 	{
+        private static readonly int SpeedParam = Animator.StringToHash("Speed");
+
         [Header("Settings")]
         [SerializeField] private float _pathUpdateRate = 0.2f;
+
+        [Header("Animations")]
+        [SerializeField] private Animator _animator;
 
         private NavMeshAgent _agent;
         private Transform _playerTransform;
@@ -25,6 +30,11 @@ namespace Assets._Project.Scripts.Enemies.Chaser
 
         private void Update()
         {
+            if (_animator != null)
+            {
+                _animator.SetFloat(SpeedParam, _agent.velocity.magnitude);
+            }
+
             if (_playerTransform == null || Time.time < _nextPathUpdateTime)
             {
                 return;
