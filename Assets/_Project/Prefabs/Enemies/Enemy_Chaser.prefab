@@ -82,8 +82,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6416233936039883435}
-        m_TargetAssemblyTypeName: Assets._Project.Scripts.DestroyOnDeath, Assembly-CSharp
-        m_MethodName: HandleDeath
+        m_TargetAssemblyTypeName: Assets._Project.Scripts.Core.ObjectDestroyer, Assembly-CSharp
+        m_MethodName: ExecuteDestroy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
