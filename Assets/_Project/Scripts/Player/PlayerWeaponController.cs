@@ -9,8 +9,42 @@ namespace Assets._Project.Scripts.Player
         [Header("Input")]
         [SerializeField] private InputActionReference _fireAction;
 
+        [Header("Weapons Setup")]
+        [SerializeField] private WeaponBase[] _allWeapons;
+
         [Header("State")]
         [SerializeField] private WeaponBase _currentWeapon;
+
+        public void EquipWeapon(WeaponBase newWeapon)
+        {
+            _currentWeapon = newWeapon;
+
+            foreach (var weapon in _allWeapons)
+            {
+                if (weapon != null)
+                {
+                    weapon.gameObject.SetActive(weapon == _currentWeapon);
+                }
+            }
+        }
+
+        private void Start()
+        {
+            if (_allWeapons == null || _allWeapons.Length == 0)
+            {
+                _allWeapons = GetComponentsInChildren<WeaponBase>(true);
+            }
+
+            if (_currentWeapon != null)
+            {
+                EquipWeapon(_currentWeapon);
+            }
+            else if (_allWeapons.Length > 0)
+            {
+                EquipWeapon(_allWeapons[0]);
+            }
+        }
+
 
         private void OnEnable()
         {
@@ -30,11 +64,6 @@ namespace Assets._Project.Scripts.Player
             {
                 _currentWeapon.Attack();
             }
-        }
-
-        public void EquipWeapon(WeaponBase newWeapon)
-        {
-            _currentWeapon = newWeapon;
         }
     }
 }
